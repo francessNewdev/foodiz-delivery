@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Delivery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        box-sizing: border-box;
+        user-select: none;
+      }
+      header::before {
+        background: url("https://images.unsplash.com/photo-1586816001966-79b736744398?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80")
+          no-repeat center center/cover;
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        height: 500px;
+        z-index: -1;
+        opacity: 0.6;
+      }
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 1.5rem;
+        font-weight: bold;
+        flex-wrap: wrap;
+      }
+      img {
+        width: 55px;
+        height: 55px;
+        margin: 0px 8px;
+        margin-top: 20px;
+      }
+      #navFoodiz {
+        margin-top: 30px;
+      }
+      @media (max-width: 332px) {
+        .navbar {
+          font-size: 1.2rem;
+        }
+        #navFoodiz {
+          margin-top: 30px;
+        }
+      }
+
+      #intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        height: 700px;
+      }
+      .basic-intro {
+        font-size: 2rem;
+        font-weight: bold;
+        color: black;
+      }
+      #basic-intro1 {
+        color: #1a1949;
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+      .about {
+        position: absolute;
+        top: 550px;
+        color: #d70f64;
+      }
+      .about > p {
+        width: 94%;
+        margin: auto;
+        font-weight: bold;
+        color: black;
+      }
+      .about p {
+        text-align: justify;
+      }
+      .introcard {
+        width: 98%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        background-color: white;
+        border-radius: 30px;
+        transition-property: all;
+        transition-duration: 2s;
+        transition-delay: 0.1s;
+        box-sizing: border-box;
+      }
+      .icard:hover {
+        transform: scale(1.05);
+        box-shadow: 10px 8px 15px black;
+      }
+      .icard {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 12px 25px;
+        border-radius: 25px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .icard-img > img {
+        width: 240px;
+        height: 250px;
+        display: block;
+        margin: auto;
+        border-radius: 25px;
+      }
+      .icardtext {
+        font-size: 18px;
+      }
+      @media (max-width: 296px) {
+        .icardtext {
+          font-size: 20px;
+        }
+      }
+      .cardmenu {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        background-color: rgb(43, 42, 42);
+        color: white;
+      }
+      .pay {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        background-color: purple;
+        padding: 17px;
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+      }
+      .paisa {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 30px;
+      }
+      #amtbtn {
+        background-color: purple;
+        border: none;
+        color: white;
+      }
+      .topay {
+        border-radius: 15px;
+        border: none;
+        background-color: black;
+        color: white;
+      }
+      .topay:hover {
+        font-size: 25px;
+        background-color: green;
+      }
+      .p {
+        cursor: pointer;
+      }
+      .m {
+        cursor: pointer;
+      }
+      .p:hover {
+        color: white;
+      }
+      .m:hover {
+        color: white;
+      }
+      .menu {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .maincard {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 25px;
+        transition-property: all;
+        border: 2px solid red;
+        border-radius: 15px;
+        background-color: white;
+        text-align: center;
+        color: black;
+        cursor: pointer;
+        transition-duration: 0.9s;
+        font-family: "Montserrat", sans-serif;
+      }
+      .maincard:hover {
+        transform: scale(1.1);
+        box-shadow: 4px 8px 12px white;
+        background-color: black;
+        color: white;
+        border: 2px solid white;
+      }
+      .maincard-img {
+        padding: 4px;
+      }
+      .maincard-img > img {
+        width: 240px;
+        height: 250px;
+        display: block;
+        margin: auto;
+        border-radius: 25px;
+        text-align: center;
+      }
+      .middle {
+        margin: 80px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        background-color: rgb(243, 226, 194);
+      }
+      .mcard {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: justify;
+      }
+      .mcard-img > img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: auto;
+        border-radius: 25px;
+        text-align: center;
+      }
+      .mcardtext {
+        text-align: center;
+      }
+      .mcardp {
+        font-weight: bold;
+      }
+      .mbutton {
+        background-color: rgb(63, 63, 226);
+        color: white;
+        border: none;
+        width: 200px;
+        height: 40px;
+        border-radius: 12px;
+        margin: 7px 0px;
+      }
+      .cardh4 {
+        transition-property: all;
+        transition-duration: 0.5s;
+      }
+      .cardh4:hover {
+        font-size: 30px;
+      }
+      .endcontainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+      .endimg {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .endimg > img {
+        width: 330px;
+        height: 450px;
+        display: block;
+        margin: auto;
+        border-radius: 25px;
+        text-align: center;
+      }
+      .notification {
+        z-index: 100 !important;
+        position: fixed !important;
+        margin-top: 4%;
+        width: 20%;
+      }
+      .balance {
+        font-size: 1rem !important;
+        color: black !important;
+      }
+      .sold {
+        z-index: 100 !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- navigation bar -->
+    <header>
+      <div class="navbar">
+        <div id="navFoodiz">
+          <img src="https://i.postimg.cc/pdszfckC/logo1.png" alt="" />
+          <p>FOODIZ HUB</p>
+        </div>
+        <div>
+          <span
+            class="nav-link border rounded-pill bg-light balance"
+            style="margin-right: 0 !important"
+          >
+            <span id="balance">0</span>
+            CELO
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="alert alert-warning sticky-top mt-2 notification"
+        role="alert"
+      >
+        <span id="notification">⌛ Loading...</span>
+      </div>
+    </header>
+    <div id="intro" style="height: 500px">
+      <div class="basic-intro">Restaurants and more,</div>
+      <div class="basic-intro">delivered to your door steps</div>
+      <div id="basic-intro1">Order Now from your favorite restaurants</div>
+      <div class="mb-4" style="margin-top: 4em">
+        <a
+          class="btn btn-dark rounded-pill"
+          data-bs-toggle="modal"
+          data-bs-target="#addModal"
+        >
+          Add New Meal
+        </a>
+      </div>
+      <div class="about">
+        <h1>About Us</h1>
+        <p>
+          For us, it's not just about bringing you good food from your favourite
+          restaurants. It's about making connections with the people, which is
+          why we sit down with the chefs, dreaming up menus that will arrive
+          fresh and full of flavour. Try us!
+        </p>
+      </div>
+    </div>
+    <div class="introcard" id="intca">
+      <div class="icard">
+        <div class="icard-img">
+          <img src="https://i.postimg.cc/CxHj1xqW/icard1.jpg" alt="" />
+        </div>
+        <div class="icardtext">Making Memories</div>
+      </div>
+      <div class="icard">
+        <div class="icard-img">
+          <img src="https://i.postimg.cc/HnyMCYmv/icard2.jpg" alt="" />
+        </div>
+
+        <div class="icardtext">Club At home</div>
+      </div>
+      <div class="icard">
+        <div class="icard-img">
+          <img src="https://i.postimg.cc/qBzGqH0j/icard3.jpg" alt="" />
+        </div>
+        <div class="icardtext">FOODIZ's Best</div>
+      </div>
+      <div class="icard">
+        <div class="icard-img">
+          <img
+            src="https://www.mommytravels.net/wp-content/uploads/2018/11/Cafe-Hollywood.png"
+            alt=""
+          />
+        </div>
+        <div class="icardtext">Desert Lovers</div>
+      </div>
+    </div>
+    <div class="collbtn" id="explore" style="margin-top: 40px">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#menuBar"
+        aria-expanded="false"
+        aria-controls="menuBar"
+        style="text-align: center; display: block; margin: 10px auto"
+      >
+        Explore Our Menu
+      </button>
+    </div>
+    <div class="collapse" id="menuBar">
+      <div class="cardmenu">
+        <div class="pay">
+          <div class="paisa">
+            Total is &nbsp;
+            <span id="amtbtn">0.00</span> &nbsp;CELO
+          </div>
+          <button id="payBtn" class="topay rounded-pill">Pay Now</button>
+        </div>
+        <div class="menu" id="menu"></div>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="mcard">
+        <div class="mcard-img">
+          <img
+            src="https://cdn.doordash.com/media/consumer/home/landing/new/ScootScoot.svg"
+            alt=""
+          />
+        </div>
+        <div class="mcardtext">
+          <h4 class="cardh4">Fastest Delivery</h4>
+          <p class="mcardp">
+            Experience FOODIZ HUB's <br />
+            fastest delivery for fresh food
+          </p>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img">
+          <img
+            src="https://cdn.doordash.com/media/consumer/home/landing/new/Storefront.svg"
+            alt=""
+          />
+        </div>
+        <div class="mcardtext">
+          <h4 class="cardh4">Become partner</h4>
+          <p class="mcardp">
+            Grow your business and reach<br />new customers by partnering with
+            us
+          </p>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img">
+          <img
+            src="https://cdn.doordash.com/media/consumer/home/landing/new/iphone.svg"
+            alt=""
+          />
+        </div>
+        <div class="mcardtext">
+          <h4 class="cardh4">Try Our App</h4>
+          <p class="mcardp">
+            Download Our app, all in one app<br />made to ease the customers
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="endcontainer">
+      <div class="endimg">
+        <img
+          src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_768,h_978/iPhone_wgconp_j0d1fn"
+          alt=""
+        />
+      </div>
+    </div>
+    <!--Modal-->
+    <div
+      class="modal fade"
+      id="addModal"
+      tabindex="-1"
+      aria-labelledby="newMealModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newMealModalLabel">New Meal</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="col">
+                  <input
+                    type="text"
+                    id="newMealName"
+                    class="form-control mb-2"
+                    placeholder="Enter name of Meal"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    id="newImgUrl"
+                    class="form-control mb-2"
+                    placeholder="Enter image url"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    id="newPrice"
+                    class="form-control mb-2"
+                    placeholder="Enter price"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-light border"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-dark"
+              data-bs-dismiss="modal"
+              id="newMealBtn"
+            >
+              Add Meal
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/Modal-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
