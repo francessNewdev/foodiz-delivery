@@ -6,6 +6,9 @@ order food from cart
 pay using celo
 track delivery by order referance number
 
+# Demo link 
+Go to [Foodiz-Dapp](https://francessnewdev.github.io/foodiz-deliverycelo101/)
+
 # Alternatively this can serve as a decentralize food market that fosters the usage of crypto in everyday life through the purchase of food
 
 
